@@ -56,6 +56,9 @@ function getImages() {
           hidebtn.className = "btn btn-sm btn-outline-secondary";
           hidebtn.type = "button";
           hidebtn.innerText = "Hide";
+          hidebtn.onclick = function (e) {
+            e.target.closest(".col-md-4").remove();
+          };
 
           const id = document.createElement("small");
           id.className = "text-muted";
@@ -130,7 +133,9 @@ function getImagesSecond() {
           hidebtn.className = "btn btn-sm btn-outline-secondary";
           hidebtn.type = "button";
           hidebtn.innerText = "Hide";
-          hidebtn.addEventListener("click", function () {});
+          hidebtn.onclick = function (e) {
+            e.target.closest(".col-md-4").remove();
+          };
 
           const id = document.createElement("small");
           id.className = "text-muted";
@@ -154,3 +159,9 @@ function getImagesSecond() {
 
 loadfirstbutton.addEventListener("click", getImages);
 loadsecondbutton.addEventListener("click", getImagesSecond);
+
+let form = document.getElementById("form");
+
+form.onsubmit = function (e) {
+  e.preventDefault();
+};
